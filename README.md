@@ -1,18 +1,3 @@
-TOOLKIT MANUAL (cont.)
-
-Toolkit Manual (cont.)
-======================
-
-[table of contents](toolkit.htm)
-
-[(main)](DOCS.HTM)  
-
-* * *
-
-* * *
-
-[![](arrow1.gif)](toolkit.htm#index)
-
 ### TK-POP
 
 #### Pop-Up Menus and Message Boxes
