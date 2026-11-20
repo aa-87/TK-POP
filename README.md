@@ -8,7 +8,7 @@ The TK-POP pop-up menu provides the programmer with a quick means for creating m
 
 Examples:
 
-![](TK-1-TKPOP-1.GIF)
+![](docs/TK-1-TKPOP-1.GIF)
 
 TK-POP provides 4 basic types of displays:
 
