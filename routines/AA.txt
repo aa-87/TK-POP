@@ -2,6 +2,6 @@ AA
         ;
         ;
         ;
-        D D BuildDefinitions^ZA001
+        D BuildDefinitions^ZA001
         G ^ZAA
         Q
