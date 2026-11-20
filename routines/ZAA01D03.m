@@ -6,7 +6,7 @@ ZAA01D03
 	;
 OnBeforeGet(data)
 	i $g(data("ACCOUNT"))="" s %ZAUT1STATUS="0`ACCOUNT number is required [ACCOUNT]" q
-	i '$d(^PADEM(data("ACCOUNT"))) s %ZAUT1STATUS="0`No patient demographics data for "_data("ACCOUNT") q
+	i '$d(^PTG(data("ACCOUNT"))) s %ZAUT1STATUS="0`No patient demographics data for "_data("ACCOUNT") q
 	q
 	;
 Map
