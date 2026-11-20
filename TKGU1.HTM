@@ -1,0 +1,230 @@
+<HTML><HEAD><TITLE>TK-Guardian Manual</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<CENTER><H1>TK-Guardian Manual</H1></CENTER>
+
+<center><a href="tkgu.htm">table of contents</a><p></center>
+  <center><a href="docs">(main)</a><p></center>
+
+<TABLE WIDTH=100% CELLPADDING=3 BORDER=0>
+<TR><TD WIDTH=15%><TD>
+
+<TR><TD VALIGN=TOP><B><A NAME="getting_started">GETTING STARTED</A></B><TD>
+
+Welcome to TK-GUARDIAN.<p>
+
+If you have several minutes we will install TKGUARDIAN and walk through an 
+introduction to the system.  By continuing into the Maintenance Functions 
+chapter, you will find that the package is comprehensive, yet easy to use 
+and maintain.<p>
+
+<HR><B>
+NOTE:  If TK-GUARDIAN will be operating in an InterSystems environment, 
+the routine ^TKGUBRK must be copied to the Manager's UCI and renamed 
+^%TKGUBRK before attempting initialization.</B><HR>
+
+<TR><TD VALIGN=TOP><B><A NAME="initialization">INITIALIZATION</A></B>
+ <TD>
+
+This manual assumes that you have already loaded the TK-GUARDIAN programs 
+onto your system and are ready to get started.  You will have noticed, 
+then, that all TK-GUARDIAN programs begin with the letters <B>TKGU</B>
+. 
+<p>
+
+Although TK-GUARDIAN is distributed in program form, it does build and 
+maintain several files.  By convention, these files also begin with the 
+letters <B>TKGU</B>
+.  When the installation is completed, the only file 
+that will remain is <B>^TKGU</B>. <P>
+
+In order to begin, invoke the initialization program by executing the 
+following instructions 
+
+<blockquote><B>DO ^TKGUINIT</B></blockquote>
+
+<HR><B>
+NOTE:  If this is the first time PG&A software has been run on your 
+system, the program will first take you through the Toolkit Initialization 
+which defines necessary operating system and terminal type parameters. 
+Refer to Appendix A for more information on the initialization 
+process.</B><HR>
+
+The TK-GUARDIAN Initialization screen should now be displayed. A facsimile 
+of the screen is shown below.  As you can see, several questions must be 
+answered during the initialization process.<p>
+
+<IMG SRC="TKGU-GS-1.GIF">
+
+<HR><B>
+NOTE:  The TK-GUARDIAN Initialization Program erases any 
+existing information in the menu and security files when used.  Proceed to 
+initialization only if initialization has not yet been run, or you wish 
+to begin constructing the menu and security systems again.</B><HR>
+
+<TR><TD VALIGN=TOP><B><A NAME="quit_or_proceed?_"> QUIT or PROCEED? </A></B>
+<TD>
+
+The initialization program provides an opportunity to quit without 
+affecting the TK-GUARDIAN database.  If this is a  first-time 
+initialization or you want to erase the files and begin again, 
+move the highlighted bar to PROCEED and press [RETURN].<P>
+
+
+If you're wondering how to move the highlighted bar,  you can use the 
+[SPACEBAR], cursor [LEFT] and cursor [RIGHT] keys, or press <B>P</B>
+.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="encryption_keyword"> Encryption Keyword</A>
+</B><TD>
+
+As described in the screen above, TK-GUARDAIN uses a keyword-based 
+encryption algorithm to encrypt system passwords in the TK-GUARDIAN files. 
+This protects the passwords from casual discovery by persons able to view 
+these files.<P>
+
+Enter a keyword or phrase in this field.  Only upper case alphabetic 
+characters, numerics, space and punctuation characters will be accepted. 
+<P>
+
+Once initialization has taken place, this keyword can not be changed, and 
+is therefore not displayed or edited anywhere else in the system.<P>
+
+The rest of the information required on this screen is necessary to 
+initialize the TK-GUARDIAN database, but may be edited at a later time 
+using Security Maintenance utilities which will be discussed later on. 
+<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="logon_timeout">Logon Timeout</A></B><TD>
+
+When User Security is desired, TK-GUARDIAN will require users to Log On 
+(or identify themselves) before providing access to the menu system. 
+<P>
+
+This screen will remain displayed on the terminal for a period of time 
+which you must define at this point.  Valid responses range from 10 
+seconds to 28,800 seconds (8 hours).  A timeout value is required. 
+<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="manager's_name"> Manager's Name</A></B><TD>
+
+To initialize the user database, the initialization program requires you 
+to enter the name of the system manager (or security manager).  Since this 
+is most probably you, enter your name here.<P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="manager's_password">Manager's Password</A>
+</B><TD>
+
+Enter an initial password for the system manager.  Valid passwords consist 
+of upper case alphabetic characters, numerals, and punctuation.  An 
+initial password is required.<P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="last_chance">Last Chance</A></B><TD>
+
+When the fields discussed above have been properly filled in, the 
+initialization program will provide one last chance to abort the process 
+as shown on the botton of the following screen:<P>
+
+<IMG SRC="TKGU-GS-2.GIF"><p>
+
+Press <B>P</B>
+ and [RETURN] to build the TK-GUARDIAN database.  During the 
+process, the initialization program will display status messages which 
+indicate its progress.  The complete procedure should take no more than a 
+minute.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="system_logon_"> SYSTEM LOGON </A></B><TD>
+
+When the database has been constructed, the default logon screen will be 
+displayed and you will be required to identify yourself using the password 
+entered in during initialization.<P>
+
+As you type the password, notice that the cursor does not move, and that 
+none of the characters that you type are displayed to the screen. 
+TKGUARDIAN does not permit passwords to be viewed when entered.  If a 
+mistake is made during entry, press [RETURN] and try again from the 
+beginning.<P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="using_menus_"> USING MENUS </A></B><TD>
+
+Once you have successfully entered your password, you will encounter a 
+menu similar to the example shown below.<P>
+
+<img src="TKGU-GS-3.GIF"><p>
+
+Since this is the first opportunity to use the TK-GUARDAIN menu driver, 
+let's check it out.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="moving_the_pointer"> Moving the Pointer</A>
+</B><TD>
+
+First experiment with the various methods of moving the selection pointer. 
+Press the cursor [DOWN] key (on most terminals it is represented by an 
+arrow pointing down).  Notice that the pointer has moved to the next 
+option.<P>
+
+Now press the [SPACE] bar.  In TK-GUARDIAN menus, [SPACE] performs just 
+like the cursor [DOWN] key.<P>
+
+Use either key to move the pointer to the last option on the menu and 
+press cursor [DOWN] or [SPACE] once more.  Notice that the pointer wraps 
+back to the top.  The pointer will do the same trick when going up as well 
+(using the cursor [UP] key). <P>
+
+Let's try one more thing before we move on.  Type an <B>S</B>
+ or one of 
+the other mnemonic characters to the left of each option.  The pointer 
+moves immediately to the option with the entered mnemonic.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="making_a_selection"> Making a Selection</A>
+</B><TD>
+
+Using one of the methods just described, move the pointer to the desired 
+option.  To invoke it press [RETURN]. 
+
+<HR><B>
+NOTE: If you have configured your system to require [RETURN] in Toolkit 
+menus, it must be pressed to complete each selection. However, if your 
+system has been configured to not require [RETURN], choosing an option by 
+mnemonic will immediately invoke that option.</B><HR>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="using_shortcuts">Using Shortcuts</A></B><TD>
+
+TK-GUARDIAN provides a method of moving quickly to predetermined options 
+on other menus without traversing the entire menu system.  We refer to 
+such a process as <B>taking a shortcut</B>
+.  As you will see, creating and 
+using shortcuts is very easy to learn.  In addition, online assistance can 
+be obtained when needed in any menu by pressing the HELP key.<P>
+
+To take a shortcut, the user simply types a slash [/] and the name 
+assigned to any place in the menu system followed by a [RETURN].  To see a 
+list of the currently defined shortcuts, simply type a slash [/] followed 
+by a question mark [?] or the HELP key.<P>
+
+Shortcuts are user-specific if the system's user security is employed.  If 
+user identification is not required,  shortcuts are common to all users. 
+<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="adding_a_shortcut">Adding A Shortcut</A></B>
+<TD>
+
+To add a shortcut, move the selection pointer to the option you would like 
+to jump to.  For example, if Electronic Mail is one of the options on the 
+Master Menu and you would like to be able to jump to mail from anywhere in 
+the system, move the pointer to Electronic Mail.  Press the plus [+] key 
+and enter the name MAIL.  Now mail can be accessed from anywhere in the 
+system by typing <B>/MAIL</B>.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="deleting_a_shortcut">Deleting A Shortcut</A>
+</B><TD>
+
+From time to time it is necessary to remove shortcuts that are no longer 
+needed.  This is easily accomplished by typing a minus [-] and the name to 
+be removed.  To use our earlier example, the mail shortcut could be 
+removed by typing <B>-MAIL</B>.<P>
+
+</TABLE>

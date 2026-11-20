@@ -1,0 +1,1006 @@
+<HTML><HEAD><TITLE>TK-Guardian Manual</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<CENTER><H1>TK-Guardian Manual</H1></CENTER>
+<center><a href="tkgu.htm">table of contents</a><p></center>
+  <center><a href="docs">(main)</a><p></center>
+
+
+<TABLE WIDTH=100% CELLPADDING=3 BORDER=0>
+<TR><TD WIDTH=15%>
+<TR><TD COLSPAN=2>
+<A NAME="maintenance_functions">
+<B><H2><CENTER>TK-GUARDIAN MAINTENANCE FUNCTIONS</H2>
+</B></A><TD>
+
+<TR><TD VALIGN=TOP><B><A NAME="system_parameter">SYSTEM PARAMETER</A></B>
+<TD>
+
+Select System Parameters from the TK-GUARDIAN Security Maintenance Menu. 
+In it there are three utilities which are used to maintain system-wide 
+parameters for the TK-GUARDIAN software.<P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="basic_parameters">Basic Parameter</A></B>
+<TD>
+
+Select <B>Basic Parameters</B>
+ by moving the pointer to the first option 
+and pressing [RETURN].  An example of this screen is provided below.<P>
+
+<IMG SRC="TKGU-MF-1.GIF">
+
+<TR><TD VALIGN=TOP><B><A NAME="enable_user_security">
+Enable User Security</A></B><TD>
+
+It is possible to turn off that part of TK-GUARDIAN security which 
+requires identification of users at logon. <P>
+
+If this parameter is set to <B>NO</B>
+, logon will not be required by 
+TK-GUARDIAN, no screening of menu options based on identity will be 
+performed, and access to the menu system will be immediate. <P>
+
+When the parameter is set to <B>YES</B>
+, users will be required to 
+identify themselves at the logon screen prior to gaining access to the 
+menu system. <P>
+
+Device-oriented security will be unaffected by the status of user 
+security. <P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="enable_two-stage_logon">
+Enable Two-Stage Logon</A></B><TD>
+
+In its default state, TK-GUARDIAN uses a single stage logon in which the 
+user identifies himself (or herself) and passes security in one step, by 
+entering a unique password.  Because the password is unique to the system, 
+TK-GUARDIAN can identify the user through its use. <P>
+
+However, many sites have already become familiar with a two step approach 
+in which users identify themselves first, then enter a password which must 
+match the password assigned to them.  If this is the preferred approach to 
+logon security, then you should enter <B>YES</B> in this field.  <P>
+
+<TR><TD VALIGN=TOP><B><A NAME="logon_screen_timeout">
+Logon Screen Timeout</A></B></TD><TD>
+
+The screen which is displayed prior to entering the TK-GUARDIAN menu 
+system at which users identify themselves by password times out after the 
+period of time (expressed in seconds) entered in this field.  A value 
+greater than 9 seconds, and less than 28,801 seconds (8 hours) is 
+expected. <p>
+
+If security provisions have disabled direct mode (or programming mode) for 
+this device, the screen will clear after timeout has occurred, a 
+terminating message will be displayed, and the job halted. 
+
+If direct mode is enabled when timeout occurs, TKGUARDIAN will quit, but 
+not halt the job.  Control will be passed to MUMPS. 
+
+<HR><B>
+NOTE: Some MUMPS environments allow a job's status to be changed 
+from "tied" to "free" during a session.  Others do not. If you 
+encounter problems with this feature, please call us. We will gladly 
+provide more specific information.</B><HR>
+
+<TR><TD VALIGN=TOP><B><A NAME="enable_device_security">
+Enable Device Security</A></B><TD>
+
+In some environments, location- or device-oriented security is not 
+desired; in others it is not feasible.  One environment in which device 
+security is not feasible is in a network environment in which logon at the 
+same system device ($I) cannot be guaranteed. <P>
+
+When this parameter is set to <B>NO</B>
+, no screening of menu options 
+will be done based on the location of the device and logon will not be 
+denied. <P>
+
+When set to <B>YES</B>
+, screening of menu selections will be performed 
+based on the location of the device on which the user is attempting to log 
+on.  The specifics of the security at any location are maintained in the 
+Device Maintenance screens which will be covered later in this manual. 
+<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="display_secured_menu_options">
+Display Secured Menu Options</A></B><TD>
+
+TK-GUARDIAN provides an opportunity, at the system level, to decide 
+whether menu options which have been screened out for a particular user or 
+location should be displayed.<P>
+
+If this parameter is set to <B>YES</B>
+, all menu options will be displayed 
+whether or not they can be accessed by the user at the time. <P>
+
+If set to <B>NO</B>
+, only those menu options which can be accessed by the 
+user will be displayed. <P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="pre_logon_routine">Pre Logon Routine</A></B>
+<TD>
+
+In some systems, there is a need to do external processing at logon, such 
+as displaying bulletin board type information.  This can easily be done by 
+indicating to TK-GUARDIAN the name of the MUMPS routine to be called.  A 
+routine defined here will be called prior to allowing the user to logon. 
+Be sure to include the "^" in front of the routine name. <P>
+
+<TR><TD VALIGN=TOP><B><A NAME="post_logon_routine">Post Logon Routine</A>
+</B><TD>
+
+This field also permits you to define the name of a routine which 
+TK-GUARDIAN will call.  In this case the call will be made after the user 
+has successfully logged on, but before the Master Menu is displayed. <P>
+
+<TR><TD VALIGN=TOP><B><A NAME="exit_message_routine">
+Exit Message Routine</A></B><TD>
+
+By entering the name of the routine here, it is possible to have 
+TK-GUARDIAN call a routine which displays an Exit Message.  In most cases 
+this message will remain on the screen until the next logon is attempted. 
+<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="exit_basic_parameters">
+Exit Basic Parameters</A></B><TD>
+
+When finished with this screen, you can return to the menu system by 
+pressing the EXIT key or by simply pressing [RETURN] through all of the 
+fields.  You can determine which keys serves the EXIT function on your 
+terminal by pressing a <B>?</B>
+ at any menu in the TK-GUARDIAN system.  In 
+any case, it will be the same EXIT key used in other PG&A Toolkit software 
+which may be running on your system. <P>
+
+<TR><TD VALIGN=TOP><B><A NAME="user_information">USER INFORMATION</A></B>
+<TD>
+
+Select User Information from the System Parameters menu by pointing to the 
+second option and pressing [RETURN].  An example of this screen is 
+provided below.<P>
+
+<IMG SRC="TKGU-MF-2.GIF"><p>
+
+The user information screen provides the ability to define the contents of 
+your system's user database.  Each field defined on this screen will 
+become part of the user data entry screen discussed later. <P>
+
+<HR><B>
+NOTE: The row on which the field appears determines where the user data 
+will be stored in the <B>
+user database.  Therefore, it is important to 
+fill in and adjust this screen to your liking prior to entering any 
+user information.  The row on which the field appears cannot be 
+changed later.</B><HR>
+
+<TR><TD VALIGN=TOP><B><A NAME="field_name">Field Name</A></B><TD>
+
+As shown in the example, enter the field name in the first column. 
+Remember that the field name will also be used as a prompt in the user 
+data entry screen. <P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="field_length">Field Length</A></B><TD>
+
+Enter the maximum length of the data to be entered for this field.  The 
+maximum value which can be entered here is 56. <p>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="field_pattern_match_code">
+Field Pattern Match Code</A></B><TD>
+
+If you would like the data entered to match a particular pattern enter the 
+validation code here.  The sample screen above shows several examples for 
+you to follow.  Notice that the name of the variable which will contain 
+the data is 'X', and that standard MUMPS pattern matching syntax is 
+required. <P>
+
+There is no method for making the entry of information into the field 
+mandatory.  And, if no data is entered, the validation code will not be 
+executed. <P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="field_include">Field Include</A></B><TD>
+
+Enter a <B>Y</B>
+ for each of up to three fields which you want to be 
+displayed for identification purposes during user lookup.  This screen 
+does not prevent you from entering a <B>Y</B>
+ in all the fields.  However, 
+only the first three encountered will be used. <P>
+
+All of the fields may be modified after user data has been entered.  Only 
+the row on which the field definition data was entered may not be changed 
+later. <P>
+
+<TR><TD VALIGN=TOP><B><A NAME="exit_user_information">
+Exit User Information</A></B><TD>
+
+When finished with this screen, return to the menu system by pressing the 
+EXIT key. <P>
+
+If you press EXIT once too often and find yourself back in direct mode, 
+fear not.  Simply, enter...<P>
+
+<blockquote><B>DO ^TKGU</B></blockquote>
+
+which is the startup program for TK-GUARDIAN. <B>Hint:</B>
+don't forget your password. <P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="edit_logon_screen">EDIT LOGON 
+ SCREEN</A></B><TD>
+Select <B>Edit Login Screen</B>
+ from the System Parameters screen.  This 
+screen editor works very much like the Toolkit I utility TK-PAINT.  There 
+are however, minor differences.<P>
+
+This editor provides the ability to design your own logon screen.  The 
+resulting screen is then used by all terminals requiring user logon. 
+<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="moving_the_cursor">Moving the Cursor</A></B>
+<TD>
+
+Text and drawings can be entered anywhere on the 24 X 80 screen.  Cursor 
+movement is directed using the cursor keys while the [RETURN] key moves 
+the cursor to the left edge of the screen on the same line.  Notice that 
+current row and column are displayed at the bottom right of the screen. 
+<P>
+
+Use [SPACE] to erase unwanted characters or drawings.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="video_modes">Video Modes</A></B><TD>
+
+To enable line drawing and the use of various video attributes, several 
+video modes are provided which include:<P>
+
+<table width=80% CELLSPACING=5 CELLPADDING=5 BORDER=1>
+
+<TR><TD VALIGN=TOP>Indicator</TD> <TD>
+Video Mode 
+<TR><TD VALIGN=TOP><B><A NAME="h">H</A></B></TD> <TD><B>High Intensity</B>
+<TR><TD VALIGN=TOP><B>U</B></TD> <TD><B>Underline Mode</B>
+<TR><TD VALIGN=TOP><B>R</B></TD> <TD><B>Reverse Video Mode</B></table>
+
+These modes can be turned on in combinations using the mode selector which 
+is accessed by pressing [CTRL][V].  Enter the desired mode indicators and 
+press [RETURN]. <p>
+
+If a mode indicator is not entered, the reverse mode becomes active.  For 
+example, if in high intensity mode and [R] is entered, the resulting mode 
+will be low intensity reverse video because [H] was not entered. <p>
+
+Pressing [RETURN] after entering no indicators will result in low 
+intensity, normal video with underlining off. <p>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="line_drawing">Line Drawing</A></B><TD>
+
+To change from Text mode to Line Drawing mode press the [TAB] key. 
+Creating a box or other line drawing is accomplished easily using the 
+cursor keys. <p>
+
+Try it.  You will quickly get the feel for it.  When you have finished 
+your line drawing, press [TAB] again to return to text mode. <p>
+
+<HR><B>
+NOTE:From time to time the editor does not put the desired line drawing 
+character where you wanted it. You can force other line drawing characters 
+from text mode by moving the cursor to the position you want changed 
+and pressing [CTRL][A].  Each time you press [CTRL][A], another line 
+drawing character will be displayed.  When satisfied, just move the 
+cursor away from the position.</B><HR>
+
+<TR><TD VALIGN=TOP><B><A NAME="setting_cursor_position">
+Setting Cursor Position</A></B><TD>
+
+The TK products do not attempt to turn the cursor off during login. 
+Therefore, a cursor will be displayed while users enter their password. 
+The location of the cursor during this time is up to you.<P>
+
+On the logon screen provided with TK-GUARDIAN, you will notice a bright <B>
+@P</B>
+.  This indicates the current location of the cursor during password 
+entry.  This is true whether single or two-stage logon has been selected 
+in Basic Parameters.  The location can be easily moved by placing the 
+cursor in the desired position and pressing [CTRL][P].<P>
+
+If you have selected two-stage logon in Basic Parameters, it is also 
+necessary to indicate the cursor location during entry of the User 
+Identification.  This position is indicated on the screen by a bright <B>
+@U</B>
+ and can be moved by placing the cursor in the desired position and 
+pressing [CTRL][U]. 
+
+
+<TR><TD VALIGN=TOP><B><A NAME="exiting">Exiting</A></B><TD>
+
+When the edit session has been completed, press the EXIT key.  TK-GUARDIAN 
+will quickly compile your screen for each of the terminal type(s) defined 
+for your system and return you to the menu. 
+
+<TR><TD VALIGN=TOP><B><A NAME="menu_maintenance">MENU MAINTENANCE</A></B>
+<TD>
+
+Select <B>Menu Maintenance</B>
+ by moving the pointer to the second option 
+on the TK-GUARDIAN Security Management menu, and pressing [RETURN].<P>
+
+<IMG SRC="TKGU-MF-3.GIF"><p>
+
+This is the TK-GUARDIAN Menu Editor.  It provides a variety of approaches 
+to constructing a menu system that is as simple or as complex as your 
+application (or applications) demand.<P>
+
+As you compare the example shown above to your screen, you will quickly 
+notice that for the purpose of this introduction, we have added several 
+options in addition to Security Maintenance.<P>
+
+To understand how the Menu Editor works, it is helpful to gain some 
+insight into the menu structure which underlies the system.<P>
+
+
+The first thing to learn is that TK-GUARDIAN makes use of a tree 
+structured design.  In other words, there is one master menu from which 
+all menus can be accessed.<P>
+
+                          <B>Tree Structured Menu System</B>
+
+
+(O] FONT 10800; 
+MRP 2.5,0; BOX 1,.6; 
+MRP .27,.24; TEXT "Master"; MRP .05,.2; TEXT "Menu"; 
+MRP .18,.16; DRP 0,.2; DRP 2,0; MRP -2,0; DRP-2,0; 
+DRP 0,.2; MRP -.5,0; BOX 1,.6; 
+MRP .35,.24; TEXT "User"; MRP -.23,.2; TEXT "Application"; 
+MRP 2.38,-.64; DRP 0,.2; MRP -.5,0; BOX 1,.6; 
+MRP .25,.24; TEXT "Level 2"; MRP .08,.2;  TEXT "Menu"; MRP .17,.16; DRP 
+0,.2; 
+MRP 2.02,-1; DRP 0,.2; MRP -.5,0; BOX 1,.6; 
+MRP .25,.24; TEXT "Level 2"; MRP .08,.2;  TEXT "Menu"; 
+MRP .17,.16; DRP 0,.2; DRP 1,0; 
+DRP -2,0; DRP 0,.2; MRP -.5,0; BOX 1,.6; 
+MRP .35,.24; TEXT "User";  MRP -.23,.2; TEXT "Application"; 
+MRP 2.39,-.64; DRP 0,.2; MRP -.5,0; BOX 1,.6; 
+MRP .25,.24; TEXT "Level 3"; MRP .08,.2; TEXT "Menu"; 
+MRP .17,.16; DRP 0,.2; FONT 1; 
+EXIT; <P>
+
+
+Notice in the illustration shown above, that all applications and 
+sub-menus are accessed through the master menu.  Also, note that 
+applications can be invoked at every level, including the master menu. 
+<P>
+
+Although it is unlikely that there will ever be a need to test it, there 
+is a theoretical limit of over two hundred levels which the tree structure 
+will support.  Since each menu can have as many as forty eight selections 
+in it, most menu systems will never go past four or five levels.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="special_keys">Special Keys</A></B><TD>
+
+The Menu Editor makes use of many of the function keys used by TK-WRITER 
+and other TK packages.  The keys available are indicated at the bottom of 
+the screen.  However, TK-GUARDIAN is run in a wide variety of hardware 
+environments.  As a result the keys assigned to each of these special 
+functions may not be readily known.<P>
+
+To remedy this situation, we have added a pop-up window which tells which 
+keys on your terminal perform the various functions.  Press a <B>?</B>
+ to 
+see this list, and press [RETURN] when ready to resume editing.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="mnemonic">Mnemonic</A></B><TD>
+
+In the illustration of the Menu Editor screen, notice the column labeled 
+'MN', which is a very short abbreviation for MNEMONIC.  In the Menu 
+Driver, options can be identified by typing one or more characters of a 
+mnemonic.<P>
+
+Each option on a menu may have a mnemonic which can be up to three 
+characters in length and can be composed of only upper case alphabetic 
+characters and numerals.<P>
+
+Care must be taken when assigning mnemonics to avoid having two or more 
+options in the same menu with the same one.  This of course will make 
+identification of a selection by mnemonic difficult.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="description">Description</A></B><TD>
+
+The Description field is where the name of the option which will appear on 
+the final menu is entered.  It can be composed of any characters.<P>
+
+However, TK-GUARDIAN supports up to three columns of options on each menu. 
+In some cases, the Menu Editor is forced to truncate the description to 
+make it fit on the screen.  The best way to determine maximum lengths for 
+your options is through experimentation.<P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="password">Password</A></B><TD>
+
+Each option in a TK-GUARDIAN menu may be assigned a password.  Passwords 
+may be the repeated as often as desired.  When entering a password, the 
+Menu Editor will convert any lower case alphabetic characters to upper 
+case.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="toolkit">Toolkit</A></B><TD>
+
+To facilitate system efficiency, indicate with a <B>Y</B>
+ any applications 
+which are based on PG&A's Toolkit Architecture, such as TK-WRITER, 
+TK-FORM, etc.  The Menu Driver will then leave key environmental 
+characteristics, such as the TK array, available for the next program to 
+be executed.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="command">Command</A></B><TD>
+
+The command column enables a variety of execution alternatives. Currently, 
+TK-GUARDIAN supports six, which are: 
+
+<center><table width=100% CELLSPACING=10 CELLPADDING=10 BORDER=0>
+<TR><TD WIDTH=5%>
+
+<TR><TD VALIGN=TOP><B><A NAME="d">D</A></B></TD>
+
+<TD>
+ DO the routine indicated.  This is the most commonly used 
+commandbecause it does not require the application being called to know 
+where to return.  It must only QUIT when completed.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="g">G</A></B></TD>
+
+<TD>
+ GOTO the routine indicated.  Certain applications which make 
+use of error trapping, which destroys the partition stack, may need to use 
+the GOTO command.  When finished they must branch to RTN^TKGU1 to return 
+to the menu driver.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="x">X</A></B></TD>
+
+<TD>
+Xecute the string or global indicated.  Although not common, some 
+applications are actually stored and executed from globals.  TKNOTE and 
+TK-PC from TOOLKIT I are examples of routines that must be called using 
+the Xecute command.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="m">M</A></B></TD>
+<TD>
+Branch to the sub-menu for this option.  This command is used to 
+indicate to the Menu Editor and the Menu Driver that there is a sub-menu 
+if this selection is invoked.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="r">R</A></B></TD>
+
+<TD>
+Return to previous level.  Use of this command is entirely 
+optional.  It enables the creation of a menu option which returns to the 
+previous menu level, or out of the menu system entirely if at the master 
+menu.  In all menus, the EXIT function key performs the same.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="t">T</A></B></TD>
+
+<TD>
+Title.  Use of this command indicates that description is to be 
+displayed as a title on the menu, and therefore cannot be         <P>
+</table>
+
+<TR><TD VALIGN=TOP><B><A NAME="routine">Routine</A></B><TD>
+
+Enter here the name of the MUMPS routine, global or variable which is to 
+be acted on with the command defined in the Command field.<p>
+
+
+By using horizontal scrolling, the Menu Editor provides more space in this 
+field than is available on the screen.  As a result, you can enter more 
+than the 18 characters which the screen is able to display at one time. 
+<p>
+
+Two supplemental routines, called <B>CLR</B> and <B>PAU</B>
+, which are 
+internal to the Menu Driver are available for use before and after 
+branching to your applications.  <B>CLR</B>
+ positions the cursor at row 1 
+column 1 of the screen and erases its contents.  <B>PAU</B>
+ forces a 
+"Press any key to continue..." message prior to re-entering TK-GUARDIAN 
+menus.<p>
+
+It is important to note, however, that these subroutines can be used only 
+with the DO and XECUTE commands.  Examples of its use are provided below: 
+<p>
+
+<center><table width=80% CELLSPACING=10 CELLPADDING=10 BORDER=0>
+
+<TR><TD VALIGN=TOP>Command</TD> <TD>
+Routine 
+
+<TR><TD VALIGN=TOP><B><A NAME="d">D</A></B></TD> <TD><B>CLR,^MYPROG</B>
+<TR><TD VALIGN=TOP><B>X</B></TD> <TD><B>D CLRX ^MYGLOB</B>
+
+<TR><TD VALIGN=TOP><B><A NAME="d">D</A></B></TD> <TD><B>^MYPROG,PAU</B>
+<TR><TD VALIGN=TOP><B>X</B></TD> <TD><B>^MYGLOB D PAU</B>
+
+<TR><TD VALIGN=TOP><B>D</B></TD> <TD><B>CLR,^MYPROG,PAU</B>
+<TR><TD VALIGN=TOP><B>X</B></TD> <TD><B>D CLRX,^MYGLOB D PAU</B></TABLE>
+
+<TR><TD VALIGN=TOP><B><A NAME="menu_timeout">Menu Timeout</A></B><TD>
+
+Each menu is automatically assigned a default timeout of 300 seconds (5 
+minutes) when created.  This can easily be changed by moving to the 
+<B>Timeout</B>
+ field on the screen using the cursor [UP] key when at the 
+top row of the menu.  Enter a number from 10 to 28,800 (8 hours).<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="title">Title</A></B><TD>
+Menu titles are also assigned a default when first accessed.  The default 
+is the title of the option in the previous menu which points to it.<p>
+
+Each title can be changed by moving to the <B>Title </B>
+ field on the 
+screen using the cursor [UP] key when in the <B>Timeout</B> field.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="next_column">Next Column</A></B><TD>
+
+TK-GUARDIAN provides as many as three columns of options for each menu. 
+However, the Editor can only display one at a time.  The current column is 
+displayed at the end of the third line from the top of the screen.<p>
+
+
+To move from one column to the next, press the [TAB] key.  When the third 
+column is on the screen, pressing the [TAB] key will return you to the 
+first column.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="next_level">Next Level</A></B><TD>
+
+If you create an option which branches to a lower level menu, and have 
+identified the command as <B>M</B>
+, then you can use the PGDN function key 
+to access the next menu in the Editor.  Remember that the cursor must be 
+on the row of the option with the <B>M</B>
+ command when the PGDN key is 
+pressed.<p>
+
+Likewise, to move back from a sub-menu, use the PGUP key.  Unlike using 
+the PGDN key, the cursor does not have to be in any particular position 
+for it to work.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="moving_options">Moving Options</A></B><TD>
+
+The Menu Editor is essentially a what-you-see-iswhat-you-get (WYSIWYG) 
+oriented editor, particularly with regard to vertical position.  Each 
+option on a menu will appear exactly where it was placed in the Menu 
+Editor.<p>
+
+Occasionally, there is a need to move selections around on a menu.  This 
+can be easily accomplished using the COP/MOV function key.  To do so, 
+position the cursor on the line of the option to be moved and press the 
+COP/MOV function key.<p>
+
+Now use the [TAB], cursor [UP] and cursor [DOWN] keys to move the option 
+to the desired location on the menu.  When satisfied, simply press 
+[RETURN].<p>
+
+Because of the interaction between the menu system and the security 
+system, it is not recommended that a selection be deleted and then 
+re-added at some other location.  All security clearances would have to be 
+re-established for the new item.<p>
+
+Using the COP/MOV function is quicker, and relieves you of the headache of 
+revising system security.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="classification_maintenance">
+CLASSIFICATION MAINTENANCE</A></B><TD>
+
+Select Classification Maintenance from the menu by moving the pointer 
+to the third option on the TK-GUARDIAN Security Management menu, and 
+pressing [RETURN].<p>
+
+A sub-menu will be displayed.  Select the option titled <B>
+Add/Edit 
+Classification.</B><p>
+
+<TR><TD VALIGN=TOP><B><A NAME="lookup">Lookup</A></B><TD>
+
+When the Classification Maintenance screen is first displayed, you will 
+have an opportunity to choose the classification which is to be edited. 
+As with other similar lookup screens in the system, there are several 
+approaches to use.<p>
+
+If you press a <B>*</B>
+ the current list of classifications will be 
+displayed. You can select one of them by moving the pointer to the desired 
+classification and pressing [RETURN].  Should the classification you're 
+looking for not be in the list, press the EXIT key and you will be given 
+the opportunity to search again.<p>
+
+If you enter several characters, such as <B>AL</B>
+, and press [RETURN], 
+TK-GUARDIAN will display only those classifications which start with the 
+letters 'AL' and you can choose one of them as described above.<p>
+
+However, if no classifications exist which begin with the letters 'AL', 
+you will be asked if you would like to add this one.  Answer with a 
+<B>Y</B> if you want to add the classification you've searched for.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="default_classification">
+Default Classification</A></B><TD>
+
+TK-GUARDIAN has a default classification which can be assigned to both 
+users and devices called <B>ALL</B>
+. This classification is different from 
+all others because it does not need to be changed when new options and/or 
+menus are added to the system.<P>
+
+The default classification was assigned to the system manager when 
+TK-GUARDIAN was initialized.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="add_a_classification">
+Add a Classification</A></B><TD>
+
+Add a classification called DEM and give it the description DEMONSTRATION 
+CLASS.<P>
+
+After the screen changes, you will first be given an opportunity to change 
+the classification description.  Press [RETURN] to leave it as it is, or 
+when finished making your changes.<P>
+
+The screen which is displayed should appear very similar to the following 
+example.<P>
+
+<IMG SRC="TKGU-MF-4.GIF"><p>
+
+Although it is very easy to modify security for a classification, you'll 
+notice that very little assistance is provided on the screen.  This in a 
+small way is to prevent unwanted tampering with the definition of security 
+classifications.<P>
+
+While the cursor is on the only option, type a <B>Y</B>
+.  This will enable 
+this option for users and devices assigned to this security 
+classification.  Since the cursor was on the last (and only) option of the 
+menu when <B>Y</B>
+ was pressed the maintenance program has proceeded to 
+the next menu.  A menu, much like the one shown below, should be 
+displayed.<P>
+
+<IMG SRC="TKGU-MF-5.GIF"><p>
+
+Beginning with the first (or master) menu, each of the available menus in 
+the menu system will be displayed on the screen as in the example.  Those 
+menu options which have been made available for this classification are 
+indicated by an asterisk <B>*</B> to the left of the option.<P>
+
+For each menu, there are several possible actions. 
+
+<center><table width=100% CELLSPACING=10 CELLPADDING=10 BORDER=0>
+<TR><TD WIDTH=5%>
+
+<TR><TD VALIGN=TOP><B><A NAME="up">UP</A></B></TD>
+<TD>
+Use the cursor [UP] key to move the pointer to the previous menu 
+option.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="down">DOWN</A></B></TD>
+<TD>The cursor [DOWN] key works the same except in reverse.<p>
+
+<TR><TD VALIGN=TOP><B>Y</B></TD>
+<TD>Press the character <B>Y</B>
+ to enable the security for the option 
+which the pointer currently points to.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="n">N</A></B></TD>
+<TD>Press <B>N</B> to disable security for the current option.<p>
+
+<TR><TD VALIGN=TOP><B>EXIT</B></TD>
+<TD>
+Press the EXIT key to complete the security edit for this 
+menu.  In succession, any submenus which have been enabled will be 
+displayed for edit.  Exiting the last menu will return you to the Security 
+Maintenance Menu.</TABLE><p>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="user_maintenance">USER MAINTENANCE</A></B>
+<TD>
+
+Select User Maintenance from the menu by moving the pointer to the fourth 
+option on the TK-GUARDIAN Security Management menu, and pressing [RETURN]. 
+<p>
+
+A sub-menu will be displayed with three User Maintenance options.  Select 
+the first <B>Add/Edit User</B>.<p>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="add/edit_user">Add/Edit User</A></B><TD>
+
+This screen, as you will see, provides the means for adding new users, as 
+well as maintaining user information.<p>
+
+It first prompts for user name.  This lookup field works the same as the 
+Classification Lookup.  Press <B>*</B>
+ to see a list of the currently 
+defined users.  Notice that your name (or that of the System Manager) has 
+already been added by the Initialization program.<p>
+
+Select this name by again pressing [RETURN].  The full user screen will be 
+displayed.  A sample of this screen is provided here.<p>
+
+<IMG SRC="TKGU-MF-6.GIF"><p>
+
+Notice that the cursor remains in the NAME field to enable edit of the 
+user's name.  Using [RETURN] or the cursor [DOWN] and cursor [UP] keys, 
+the cursor can be moved to desired fields.<p>
+
+If additional user fields have been defined in the User Information 
+screen, they have been added to the bottom of the screen.<p>
+
+Several fields on this screen have key importance to the management of 
+system security.  They are as follows:<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="status">Status</A></B><TD>
+
+The status field provides the ability to deactivate any user.  When 
+deactivated, the user's password will not allow entry to the system 
+beginning at the next logon.  Possible responses for this field 
+are [A] for Active and [I] for Inactive.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="password">Password</A></B><TD>
+
+If the User Security option has been selected in the Basic Parameters 
+screen, users will be required to logon to the system by entering their 
+password.  In a single-stage logon, this password identifies the user and 
+the user's security clearance to the system.<p>
+
+In a two-stage logon, the password verifies the identity of the user who 
+has already identified himself or herself.<p>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="direct_mode_access">Direct Mode Access</A>
+</B><TD>
+
+Available responses are <B>Y</B> for Yes and <B>N</B>
+ for No.  When Direct 
+Mode is enabled, [BREAK] and [CTRL- C] keys can be used to interrupt menus 
+(and potentially applications) and access will be provided to MUMPS when 
+exiting TK-GUARDIAN's Master Menu.  Otherwise, TK-GUARDIAN will halt.<p>
+
+<HR><B>
+NOTE:  Some MUMPS environments allow a job's status to be changed 
+from "tied" to "free" during a session, thus enabling Direct Mode.  Others 
+do not.  If you encounter problems with this feature, please call us.  We 
+will gladly provide more specific information.<p><HR></B>
+
+<TR><TD VALIGN=TOP><B><A NAME="department">Department</A></B><TD>
+
+This field is used primarily when TK-MAIL is installed along with 
+TK-GUARDIAN.  It permits selection, by department, of the persons to whom 
+mail is to be sent.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="security_classification">
+Security Classification</A></B><TD>
+
+This field identifies the security classification assigned to the user. 
+There are three possible approaches to this field.<P>
+
+<center><table width=100% CELLSPACING=5 CELLPADDING=5 BORDER=0>
+<TR><TD WIDTH=5%>
+
+<TR><TD VALIGN=TOP>a)</TD>
+<TD>
+Leave it empty.  When the classification field is empty, TK-GUARDIAN 
+looks for user specific security clearance.  (See Change User Security). 
+If left empty, and no user-specific security is defined, access will be 
+denied at login with the message "NO OPTIONS AVAILABLE".<P>
+
+<TR><TD VALIGN=TOP>b)</TD>
+<TD>
+Enter 'ALL'.  This is a default classification which provides 
+immediate access to all menus and selections.<P>
+
+<TR><TD VALIGN=TOP>c)</TD>
+<TD>
+Enter the name of a security classification which has been defined in 
+the Classification Maintenance screen.<p></TABLE></CENTER>
+
+Exit this screen, as with the others, by pressing the EXIT key. 
+
+<TR><TD VALIGN=TOP><B><A NAME="change_user_security">
+Change User Security</A></B><TD>
+
+Although TK-GUARDIAN provides a comprehensive security classification 
+function, it assumes that not all users will fit into classification 
+categories.  Hence the ability to define user-specific security.<P>
+
+Select the Change User Security screen from the User Maintenance menu. 
+You will first be prompted for the user name.  Enter several characters of 
+the user's last name (or <B>*</B>
+ for a list of all users) and press 
+[RETURN].  Select the desired user by moving the pointer up or down to it 
+and pressing [RETURN].<P>
+
+From this point on, this program operates just like the Classification 
+Security maintenance program.  Refer to the explanation there for further 
+assistance.<P>
+
+<HR><B>
+NOTE:  When a user has been given security through this program, it 
+will not take effect until the Security Classification field in the 
+Add/Edit User Screen is blank.</B><HR><P>
+
+<TR><TD VALIGN=TOP><B><A NAME="delete_user">Delete User</A></B><TD>
+
+Because TK-GUARDIAN enables a user's status to be made inactive, it is not 
+necessary, nor wise to remove the user from the system entirely.  However, 
+from time to time it is necessary to remove duplicates or test data from 
+the files.  This program performs that function.<P>
+
+Select the Delete User screen from the User Maintenance menu.  You will 
+first be prompted for the user name.  Enter several characters of the 
+user's last name (or <B>*</B>
+ for a list of all users) and press [RETURN]. 
+Select the user to be removed from the system by moving the pointer up or 
+down to it and pressing [RETURN].<P>
+
+<IMG SRC="TKGU-MF-7.GIF"><p>
+
+As you can see in the example above, the user's data is displayed to 
+assist in confirming that the correct user has been selected.<P>
+
+If this is not the intended user, press <B>N</B>
+ or the EXIT key to search 
+again.  Otherwise, press <B>Y</B>.  The user will quickly be removed.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="device_maintenance">DEVICE MAINTENANCE</A>
+</B><TD>
+
+Select <B>Device Maintenance</B> from the Security Management menu.<P>
+
+<TR><TD VALIGN=TOP><B>Add/Edit Device</B><TD>
+
+Select the Add/Edit Device Information screen from the Device Maintenance 
+menu.  This screen provides the ability to define device locations to the 
+system for security purposes.  Device level security is only active when 
+it has been selected on the Basic Parameters screen.<P>
+
+<IMG SRC="TKGU-MF-8.GIF">
+
+<HR><B>
+NOTE:  Some networks, such as Ethernet, do not provide static 
+device numbers for each terminal device.  In these environments, a 
+device named DEFAULT must be created to control security.</B><HR><P>
+
+Most of the parameters of this screen can be applied to all terminals in a 
+networked environment by defining a device called "DEFAULT".  At the time 
+of logon, TK-GUARDIAN first checks to see if the current device has been 
+defined.  If not, it then checks to see if a device called "DEFAULT" has 
+been defined.  If neither are available, and device security has been 
+enabled by the Basic Parameters screen, logon is denied.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="lookup">Lookup</A></B><TD>
+
+When the screen is displayed, you are given the opportunity to select the 
+device number to be defined or edited.  The lookup works like other 
+similar lookups in the system.  Press <B>*</B>
+ to get a complete list of 
+currently defined devices from which to choose.<P>
+
+When TK-GUARDIAN was initialized, the device from which it was initialized 
+was defined temporarily for you.  The screen should be very similar to the 
+sample shown above.<P>
+
+After selection of a device, and editing of the device location, you are 
+given the opportunity to define device specific parameters.  The key 
+fields available are described below.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="device_status">Device Status</A></B><TD>
+
+Like users, specific devices can be inactivated without removing them from 
+the system.  Possible responses are <B>A</B> for Active and <B>I</B>
+ for 
+Inactive.  Chaging of this field has no effect if device security is not 
+selected in the Basic Parameters screen.<P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="security_status">Security Status</A></B><TD>
+
+In many systems, especially when development and operations are performed 
+on the same system, it is appropriate for Device Security to be on, but 
+ignored for certain (e.g., development) terminals.<P>
+
+Possible responses are <B>S</B> for Secured, and <B>U</B>
+ for Unsecured. 
+When a device is unsecured, logon is no longer required, access is granted 
+to <B>all</B> menus and menu options, and direct mode is enabled.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="security_classifications">
+Security Classifications</A></B><TD>
+
+Enter the name of the security classification to be assigned to this 
+device.  Security classifications must have been defined by the 
+Classification Maintenance screen.  You may also use the system 
+classification <B>ALL</B>
+ which provides access to all system menus and 
+options.<P>
+
+If you leave the security classification field empty, the system assumes 
+that you either have, or will define device-specific security for this 
+device.  Refer to Change Device Security for more information.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="direct_mode_enabled">Direct Mode Enabled</A>
+</B><TD>
+
+Similar to direct mode for users, this field makes direct mode available 
+to anyone who logs on at this device.<P>
+
+Note however that user parameters always override device parameters in 
+this system.  As a result, if Direct Mode is not enabled, a user who has 
+been provided Direct Mode Access will be able to enter direct mode.<P>
+
+In addition, a user for whom Direct Mode has been denied, logging in to a 
+device in which Direct Mode has been disabled, will not have access to 
+direct mode once they have logged in.<P>
+
+<HR><B>
+NOTE:  Some MUMPS environments allow a job's status to be changed 
+from "tied" to "free" during a session, thus enabling Direct Mode.  Others 
+do not. If you encounter problems with this feature, please call us.  We 
+will gladly provide more specific information.</B><HR><P>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="keep_activity_log">Keep Activity Log</A></B>
+<TD>
+From time to time it is desirable to monitor user activity in the system. 
+This field enables this logging feature.  Answer [Y] for yes or [N] for 
+no.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="keep_activity_for">Keep Activity for</A></B>
+<TD>
+
+Often when logging activity, it is desirable to purge the activity data 
+after a specified period of time.  If you want activity data to be purged, 
+enter a number from 1 to 999.  Leaving the field blank when Logging has 
+been selected will disable purging.<P>
+
+Note that purging for each device is performed when a logon to that device 
+is attempted.<P>
+
+<TR><TD VALIGN=TOP><B><A NAME="change_device_security">
+Change Device Security</A></B><TD>
+
+Although TK-GUARDIAN provides a comprehensive security classification 
+function, it assumes that not all devices will fit into classification 
+categories.  Hence the ability to define device-specific security.<P>
+
+Select the Change Device Security screen from the Device Maintenance menu. 
+You will first be prompted for the device.  Enter the device number (or <B>
+*</B>
+ for a list of all devices) and press [RETURN].  Select the desired 
+device by moving the pointer up or down to it and pressing [RETURN].<P>
+
+From this point on, this program operates just like the Classification 
+Security maintenance program.  Refer to the explanation there for further 
+assistance.<P>
+
+<HR><B>
+NOTE:  When a device has been given security through this program, 
+it will not take effect until the Security Classification field in the 
+Add/Edit Device screen is blank.</B><HR><P>
+
+<TR><TD VALIGN=TOP><B><A NAME="delete_device">Delete Device</A></B><TD>
+
+From time to time, as the configuration of your system changes, it is 
+necessary to remove a device from the device table.  In some cases this is 
+done to enable the use of the DEFAULT device parameters at a desired 
+location.  This program performs that function.<P>
+
+Select the Delete Device screen from the Device Maintenance menu.  You 
+will first be prompted for the device number.  Enter the number of the 
+desired device ($I or <B>*</B>
+ for a list of all devices) and press 
+[RETURN].  Select the device to be removed from the system by moving the 
+pointer up or down to it and pressing [RETURN].<P>
+
+</TD></TR></TABLE>

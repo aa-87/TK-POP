@@ -1,0 +1,84 @@
+<HTML><HEAD><TITLE>TK-Guardian Manual</TITLE></HEAD>
+<BODY><CENTER><H1>TK-Guardian Manual</H1></CENTER>
+<html><head><title>TK-GUARDIAN MANUAL</title>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<center><a href="tkgu.htm">table of contents</a><p></center>
+  <center><a href="docs">(main)</a><p></center>
+
+
+<TABLE WIDTH=100% CELLPADDING=3 BORDER=0>
+<TR><TD WIDTH=15%>
+<TR><TD VALIGN=TOP><B><A NAME="programming_considerations_">
+ PROGRAMMING CONSIDERATIONS </A></B><TD>
+
+The programming requirements for interfacing TK-GUARDIAN are very simple 
+and straight forward.<p>
+
+<TR><TD VALIGN=TOP><A NAME="storage_requirements"><B>STORAGE 
+              REQUIREMENTS</B></A><TD>
+The current version of TK-GUARDIAN is composed of 48 standard MUMPS 
+routines requiring approximately 125,000 bytes for storage of the source 
+code.  Of course where compilation is available, additional space will be 
+used for object code.<p>
+
+The TK-GUARDIAN database is kept in a file (global) named ^TKGU.  After 
+initialization, this file will contain approximately 15,000 bytes of 
+information.  Typical final sizes will vary from 30,000 to 60,000 bytes or 
+more depending on the number and size of menus, the number of users and 
+devices, and whether transaction logging is activated.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="local_memory_requirements">
+LOCAL MEMORY REQUIREMENTS</A></B><TD>
+
+Like most of the TK product family, TK-GUARDIAN has been designed to 
+run in a 5K byte partition.  Systems which do not impose fixed partition 
+sizes will have no problems.<p>
+
+Systems with fixed partition sizes may begin experiencing local memory 
+problems if partition sizes are less than 4.5 K.<p>
+
+Although TK-GUARDIAN performs an exclusive kill prior to invoking an 
+application, there are two special variables (see below) which are 
+protected.  Depending on the use of these variables in your system, a 
+small overhead will be added to your applications.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="special_variables">SPECIAL VARIABLES</A></B>
+<TD>
+
+TK-GUARDIAN maintains two local variables with which programmers need be 
+aware.<p>
+
+<TR><TD VALIGN=TOP><B>TKID Array</B><TD>
+
+The local variable TKID is the control variable which TK-GUARDIAN uses to 
+monitor the environment and stack menus.  The array contains a number of 
+device and user specific parameters, but generally requires only 30 to 40 
+bytes.<p>
+
+It is <B>very important</B>
+ that your applications protect this variable 
+from being inadvertently killed or modified. If TKID is not available when 
+control passes back to the TK-GUARDIAN menu driver, it is forced to return 
+to the logon screen (if required at the device) or quit altogether.<p>
+
+The array is structured as follows:<p>
+
+<BLOCKQUOTE>TKID(0) = Current menu ID</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(1) = User security information, if any</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(2) = Device security info, if any</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(3) = TK-GUARDIAN menu global name</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(4) = Direct mode flag (0 or 1)</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(5) = Activity logging flag (0 or 1)</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(6) = User ID</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(7) = Current device number ($I)</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(8) = Display secured options flag</BLOCKQUOTE>
+<BLOCKQUOTE>TKID(9) = Date and time of logon ($H)</BLOCKQUOTE>
+
+<TR><TD VALIGN=TOP><B><A NAME="tkbuf_array">TKBUF array</A></B><TD>
+
+The TKBUF variable is protected by TK-GUARDIAN to enable communication 
+between application programs.  Its creation and use are entirely 
+application dependent.<p>
+
+</TABLE>

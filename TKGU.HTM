@@ -1,0 +1,178 @@
+<HTML><HEAD><TITLE>TK-Guardian Tutorial</TITLE></HEAD>
+<BODY>
+<CENTER>
+<A NAME="index"></A>
+<H1>TK-Guardian Manual</H1>
+<A HREF="DOCS.HTM">(main)</A><BR>
+<FONT SIZE=4><U><B>CONTENTS</B></U></FONT><P>
+<FONT FACE="ARIAL,HELVETICA,GENEVA" SIZE=2>
+<TABLE WIDTH="100%" CELLSPACING=0 CELLPADDING=0 BORDER=0><TR>
+<TD WIDTH="25%"></TD><TD>
+<A HREF="#introduction"><B>INTRODUCTION</B></A>
+<BLOCKQUOTE>
+<A HREF="#overview">Overview</A><BR>
+<A HREF="#menu_management">Menu Management</A><BR>
+<A HREF="#security_management">Security Management</A><BR>
+</BLOCKQUOTE>
+<A HREF="tkgu1.htm#getting_started ">GETTING STARTED</A>
+<BLOCKQUOTE>
+<A HREF="tkgu1.htm#initialization">Initialization</A><BR>
+<A HREF="tkgu1.htm#system_logon_">System Logon </A ><BR>
+<A HREF="tkgu1.htm#using_menus_">Using Menus </A><BR>
+</BLOCKQUOTE>
+<A HREF="tkgu2.htm#maintenance_functions">MAINTENANCE FUNCTIONS</A>
+<BLOCKQUOTE>
+<A HREF="tkgu2.htm#system_parameter">System Parameter</A><BR>
+<A HREF="tkgu2.htm#user_information">User Information</A><BR>
+<A HREF="tkgu2.htm#edit_logon_screen">Edit Logon Screen</A><BR>
+<A HREF="tkgu2.htm#menu_maintenance">Menu Maintenance</A><BR>
+<A HREF="tkgu2.htm#classification_maintenance">Classification 
+      Maintenance</A><BR>
+<A HREF="tkgu2.htm#user_maintenance">User Maintenance</A><BR>
+<A HREF="tkgu2.htm#device_maintenance">Device Maintenance</A><BR>
+</BLOCKQUOTE>
+<A HREF="tkgu3.htm#programming_considerations_">PROGRAMMING 
+CONSIDERATIONS</A>
+<BLOCKQUOTE>
+<A HREF="tkgu3.htm#storage_requirements">Storage Requirements</A><BR>
+<A HREF="tkgu3.htm#local_memory_requirements">Local Memory 
+Requirements</A><BR>
+<A HREF="tkgu3.htm#special_variables">Special Variables</A><BR>
+</BLOCKQUOTE>
+<B>APPENDICES</B>
+<BLOCKQUOTE>
+<A HREF="tkapp1.htm">A - SYSTEM INFORMATION</A><BR>
+<A HREF="tkapp2.htm">B - DEFAULT KEYBOARD ASSIGNMENTS</A><BR>
+</BLOCKQUOTE></TABLE>
+<HR><HR>
+<TABLE WIDTH=100% CELLPADDING=3 BORDER=0>
+<TR><TD WIDTH=15%><TD>
+<TR><TD VALIGN=TOP><B><A NAME="introduction">INTRODUCTION</A></B><TD>
+The TK-GUARDIAN Security Management System is an ANSI MUMPS-based software 
+product which provides an effective solution to the need for the 
+centralized management of application menus and system security.  It can 
+easily be tailored to meet the most stringent (or relaxed) requirements 
+for system security. 
+
+As is the case with all PG&A products, it is screen oriented.  Yet it can 
+easily tie both screen and scroll based packages together into a friendly 
+environment which is both efficient and effective. 
+
+This manual is designed to provide the information necessary for system 
+managers and/or programmers to create and maintain such a system.  The 
+sections outlined below will assist you in getting started, in addition to 
+serving as a reference later. 
+
+<TR><TD VALIGN="TOP"><B>Overview</B><TD>
+This section provides general information regarding TK-GUARDIAN's 
+capabilities and is a useful starting point.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="getting_started">Getting Started</A></B><TD>
+This section provides general information regarding TK-GUARDIAN's 
+capabilities and is a useful starting point.<p>
+
+<TR><TD VALIGN=TOP><B>Getting Started</B><TD>
+This section provides step-by-step instructions which will help install 
+and 
+initialize the system, as well as providing an introduction to using 
+TK-GUARDIAN menus. <P>
+
+<TR><TD VALIGN=TOP><B><A NAME="maintenance_functions">
+Maintenance Functions</A></B><TD>
+This section is provided to assist in the continuing maintenance of the 
+system.  Included will be instructions for maintaining the menu system as 
+well as system security. <p>
+
+<TR><TD VALIGN=TOP><B><A NAME="programming_considerations">
+Programming Considerations</A></B><TD>
+
+              This section provides useful 
+information regarding 
+the TK-GUARDIAN 
+environment and special 
+variables. 
+
+<TR><TD VALIGN=TOP><B><A NAME="system_information">System Information</A>
+</B><TD>
+
+       Appendix A is included to provide further information regarding 
+Toolkit Initialization and Terminal Parameters.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="overview">OVERVIEW</A></B><TD>
+
+TK-GUARDIAN is, by necessity and design, both a menu management system and 
+a security management system.  It is through the complete integration of 
+these functions that TK-GUARDIAN is able to provide its many features. 
+Some of these features are discussed below.<p>
+
+
+<TR><TD VALIGN=TOP><B><A NAME="menu_management">MENU MANAGEMENT</A></B><TD>
+
+TK-GUARDIAN provides a comprehensive Menu Editor which makes the job of 
+creating and maintaining application menus simple.  Each menu can provide 
+as many as forty eight individual options which can branch to other menus, 
+other PG&A Toolkit Products, or your system applications.  There is no 
+practical limit to the number of menus you can build using the TK-GUARDIAN 
+Menu Editor. <p>
+
+Once a menu system has been constructed, you will discover that the Menu 
+Driver is attractive and simple to use.  After a menu is displayed, users 
+can select the desired option using the UP, DOWN, LEFT, or RIGHT cursor 
+movement keys.  Alternatively, users can enter one or more characters of 
+the mnemonic which is displayed next to each option.  The Selection 
+Pointer will move to the appropriate option, which can then be invoked by 
+simply pressing [RETURN].<p>
+
+TK-GUARDIAN also provides user-definable shortcuts to any selection from 
+any menu.  Using shortcuts, users can jump from any menu to any option on 
+another menu without having to traverse the entire menu structure.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="security_management">SECURITY MANAGEMENT</A>
+</B><TD>
+
+In addition to menu management, TK-GUARDIAN offers a variety of 
+approaches to securing application systems.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="user_security">User Security</A></B><TD>
+
+When user security is desired, users are added to TK-GUARDIAN's user 
+database and assigned a unique password and a list of available menu 
+options.  At logon, users are prevented from accessing any 
+menu options which have not been assigned to them.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="device_security">Device Security</A></B><TD>
+
+If device security is desired, each device on the system is added to 
+TK-GUARDIAN's device tables and given a list of available menu options. 
+At logon, users are prevented from accessing menu options not assigned to 
+their current device.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="option_passwords">Option Passwords</A></B>
+<TD>
+
+In addition to User and Device Security, individual menu options 
+can be assigned a password which must be accurately entered by users 
+before access to the option will be granted, regardless of their 
+security clearance.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="combinations">Combinations</A></B><TD>
+
+Any combination of these approaches to securing application software can 
+be employed to tailor the security of your system to your specific 
+needs.<p>
+
+<TR><TD VALIGN=TOP><B><A NAME="encryption">Encryption</A></B><TD>
+
+To help prevent the casual discovery and circulation of user passwords, 
+TK-GUARDIAN employs a proprietary keyword-based encryption algorithm 
+which makes it impossible for users and/or programmers to discover user 
+and selection passwords even when they are able to look through 
+TK-GUARDIAN's files.<p>
+
+We believe that TK-GUARDIAN is the most effective system of its kind 
+available for Standard MUMPS systems.  We hope you will be completely 
+satisfied with it.  Should you have any questions or comments regarding 
+TK-GUARDIAN, or any of PG&A's TKProducts, please give us a call.<p>
+
+
+</TABLE></BODY>
