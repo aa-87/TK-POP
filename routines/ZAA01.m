@@ -9,8 +9,8 @@ GetList(TableDefinitions)
 	N R 
 	D GetRoutineList^ZAA(^ZAAG("SETTINGS","TABLES_PREFIX")_"*",.R)
 	N D S A="" F  S A=$O(R(A)) Q:A=""  D @("^"_A)
-	;s @TableDefinitions@("PatientCustomData")="Map^ZAA01D01:^PACUS:ACCESSION(R)|SEQUENCE(O):^PACUS:Patient Custom Data"
-	;s @TableDefinitions@("PatientDemographics")="Map^ZAA01D02:^PADEM:ACCESSION(R):^PADEM:Patient Demographics"
+	s @TableDefinitions@("PatientCustomData")="Map^ZAA01D01:^PACUS:ACCESSION(R)|SEQUENCE(O):^PACUS:Patient Custom Data"
+	s @TableDefinitions@("PatientDemographics")="Map^ZAA01D02:^PADEM:ACCESSION(R):^PADEM:Patient Demographics"
 	q 1
 	;
 BuildDefinitions;
