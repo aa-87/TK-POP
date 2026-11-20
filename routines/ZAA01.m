@@ -11,6 +11,7 @@ GetList(TableDefinitions)
 	N D S A="" F  S A=$O(R(A)) Q:A=""  D @("^"_A)
 	s @TableDefinitions@("PatientCustomData")="Map^ZAA01D01:^PACUS:ACCESSION(R)|SEQUENCE(O):^PACUS:Patient Custom Data"
 	s @TableDefinitions@("PatientDemographics")="Map^ZAA01D02:^PADEM:ACCESSION(R):^PADEM:Patient Demographics"
+	s @TableDefinitions@("ADSPatientDemographics")="Map^ZAA01D03:^PTG:ACCOUNT(K)"
 	q 1
 	;
 BuildDefinitions;
