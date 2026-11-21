@@ -8,7 +8,7 @@ The TK-POP pop-up menu provides the programmer with a quick means for creating m
 
 Examples:
 
-![](https://github.com/aa-87/TK-POP/blob/main/TK-1-TKPOP-1.gif)
+![](https://github.com/aa-87/TK-POP/blob/main/docs/TK-1-TKPOP-1.gif)
 
 TK-POP provides 4 basic types of displays:
 
@@ -294,18 +294,18 @@ X may be "predefined" and displayed when using TK-POP as a dialog box.
 
 An example of how you would use TK-POP in one of your routines might look like this:
 
-![]([TK-1-TKPOP-2.GIF](https://github.com/aa-87/TK-POP/blob/main/TK-1-TKPOP-2.gif))
+![]([TK-1-TKPOP-2.GIF](https://github.com/aa-87/TK-POP/blob/main/docs/TK-1-TKPOP-2.gif))
 
 The value of X returned from the above pop-up is either 1, 2 or 3. The program then jumps with a computed GOTO to either TODAY, YEST or TOMOR.
 
 TK-POP can also be used to create a simple data entry box, or what is sometimes called a dialog box. To do this, you must not include any menu items in Piece 6 or the Y array, but you can include as many heading lines that you wish. TK-POP will then call TK-READ with the cursor positioned at the end of the last heading line. An example of the Y variable for a dialog box would look like:
 
-![](https://github.com/aa-87/TK-POP/blob/main/TK-1-TKPOP-3.gif)
+![](https://github.com/aa-87/TK-POP/blob/main/docs/TK-1-TKPOP-3.gif)
 
 Note that when using TK-POP as a dialog box, you may also define any of the TK-READ variables such as PAT, MIN, MAX, TRM and CHR if you want more control over the input (see TK-READ).
 
 For a more complex example of TK-POP, the following illustrates the use of the GLOBAL option as well a starting point and transform. Also the count value limits the number of words that are initially displayed so that pop-up doesn't take up the entire screen.
 
-![](https://github.com/aa-87/TK-POP/blob/main/TK-1-TKPOP-4.gif)
+![](https://github.com/aa-87/TK-POP/blob/main/docs/TK-1-TKPOP-4.gif)
 
 The variable TO is used in the transform to indicate to TK-POP to display the subscripts of the global ^TKWORD rather than the data. The function keys EXIT and OTHER OPTIONS are activated so that the user can jump out of the pop-up without making a selection.
